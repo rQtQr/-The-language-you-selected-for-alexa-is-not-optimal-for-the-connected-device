@@ -1,0 +1,69 @@
+==================================================================
+THE ULTIMATE GUIDE: BYPASS JBL / ALEXA "NOT OPTIMAL LANGUAGE" BUG
+Validated: 2026-11-02 | Tested on Samsung Galaxy A52 & JBL Tour One M2
+==================================================================
+
+BUG FACTS:
+This is a regional and communication bug in newer versions of the 
+Amazon Alexa app on Android that clashes with the JBL headphones' 
+firmware when the phone is located in an unsupported Alexa region (e.g., Sweden).
+
+THE CORE SOLUTION (In brief):
+Trick Amazon's cloud and app into believing that the phone, account, and 
+connection are located in the US during the actual handshake, and then restore.
+
+------------------------------------------------------------------
+STEP-BY-STEP TO FIX THE REGISTRATION:
+------------------------------------------------------------------
+
+1. PREPARE THE PHONE'S ENVIRONMENT
+   - Set Android's system language to: English (United States).
+   - Set the keyboard input to: English (US).
+   - Turn off Wi-Fi completely and run solely on MOBILE DATA (4G/5G) 
+     (to prevent local DNS leaks).
+
+2. BLOCK AUTOMATIC UPDATES
+   - Open Google Play Store -> Settings -> Network preferences.
+   - Select "Don't auto-update apps".
+
+3. DOWNGRADE THE ALEXA APP (THE KEY STEP)
+   - Uninstall the current Alexa app from the phone.
+   - Go to APKMirror.com and search for "Amazon Alexa".
+   - Find a standalone APK (choose "Universal" or "arm64-v8a" of type APK, NOT Bundle) from January/February 2024 (e.g., v2.2.5468870).
+   - Download and install it.
+
+4. MASK THE GPS LOCATION
+   - Go to Android Settings -> Apps -> Alexa -> Permissions -> Location.
+   - Select "Allow only while using the app" BUT turn off "Use precise location" (Precise Location = OFF).
+   - (Do the same for the JBL Headphones app).
+
+5. MANIPULATE AMAZON'S BACKEND REGION
+   - Log in to Amazon.com in a web browser.
+   - Go to: Account & Lists -> Manage Your Content and Devices -> Preferences tab -> Country/Region Settings.
+   - Click "Change" and update your digital region to a fake US address (e.g., a well-known hotel in New York).
+
+6. PERFORM THE HANDSHAKE
+   - Start ProtonVPN on the phone and connect to a server in the US.
+   - Ensure the JBL headphones are connected via Bluetooth (e.g., via Google Fast Pair).
+   - Open the older Alexa app, log in, and go to Devices -> (+) -> Add Device -> Headphones.
+   - Select JBL Tour One M2. The pairing will now succeed without loops!
+   - Open the JBL app and activate Alexa under "Voice Assistant".
+
+------------------------------------------------------------------
+STEP-BY-STEP TO RESTORE TO SWEDISH MODE (FOR TUNEIN):
+------------------------------------------------------------------
+
+Since portable headphones cannot be manually selected as "This Device" in the Alexa app menus, the account must be moved back to Sweden for TuneIn radio to work via the headphones' touch controls:
+
+1. Close the Alexa app completely (swipe it away from recent apps).
+2. Turn off ProtonVPN and turn your home Wi-Fi back on.
+3. Log in to Amazon.com again and change "Country/Region Settings" back to your real Swedish address.
+4. Go to Android's app settings for Alexa and JBL and turn "Precise Location" back ON.
+5. Change the phone's system language and keyboard back to Swedish.
+6. Reactivate automatic updates in the Google Play Store.
+7. Restart the phone twice to properly clear the Bluetooth and app cache.
+
+USAGE:
+Start TuneIn by pressing the headphones' voice button / touch area and say: 
+"Alexa, play [Station Name]" and the stream will start instantly in the headset!
+==================================================================
